@@ -115,8 +115,8 @@ These plugin can be installed as needed to extend system functionality:
 | Purchases    | Procurement and purchase order management    |
 | Recruitments | Applicant tracking and hiring                |
 | Sales        | Sales pipeline and opportunity management    |
-| Timeoffs     | Leave management and tracking                |
-| Timesheet    | Employee work hour tracking                  |
+| Time-off     | Leave management and tracking                |
+| Timesheets   | Employee work hour tracking                  |
 | Website      | Website for customer                         |
 
 ## Installation and Management
