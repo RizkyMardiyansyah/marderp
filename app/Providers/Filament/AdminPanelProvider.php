@@ -6,6 +6,7 @@ use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
 use Filament\Panel;
@@ -18,6 +19,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Webkul\Support\PluginManager;
 
@@ -83,6 +85,17 @@ class AdminPanelProvider extends PanelProvider
                     ->isActiveWhen(fn () => request()->is('admin/themes'))
                     ->group('Settings')
                     ->sort(6),
+            ])
+            ->userMenuItems([
+                'profile' => MenuItem::make()->label(fn () => Auth::user()?->name ?? 'Guest'),
+
+                // 'logout' => MenuItem::make()->label('Log out'),
+                
+                MenuItem::make()
+                    ->label('My Profile')
+                    ->url('/admin/profile')
+                    ->icon('heroicon-o-user'),
+                // ...
             ])
 
             ->middleware([

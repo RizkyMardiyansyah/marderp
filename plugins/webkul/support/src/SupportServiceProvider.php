@@ -76,29 +76,29 @@ class SupportServiceProvider extends PackageServiceProvider
         ])->where(['filename' => '[ \w\\.\\/\\-\\@\(\)\=]+']);
     }
 
-    public function packageRegistered(): void
-    {
-        $version = '1.0.0-alpha1';
+    // public function packageRegistered(): void
+    // {
+    //     $version = '1.0.0-alpha1';
 
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::USER_MENU_PROFILE_BEFORE,
-            fn (): string => Blade::render(<<<'BLADE'
-                <x-filament::dropdown.list>
-                    <x-filament::dropdown.list.item>
-                        <div class="flex items-center gap-2">
-                            <img
-                                src="{{ url('cache/logo.png') }}"
-                                width="24"
-                                height="24"
-                            />
+    //     FilamentView::registerRenderHook(
+    //         PanelsRenderHook::USER_MENU_PROFILE_BEFORE,
+    //         fn (): string => Blade::render(<<<'BLADE'
+    //             <x-filament::dropdown.list>
+    //                 <x-filament::dropdown.list.item>
+    //                     <div class="flex items-center gap-2">
+    //                         <img
+    //                             src="{{ url('cache/logo.png') }}"
+    //                             width="24"
+    //                             height="24"
+    //                         />
 
-                            Version {{$version}}
-                        </div>
-                    </x-filament::dropdown.list.item>
-                </x-filament::dropdown.list>
-            BLADE, [
-                'version' => $version,
-            ]),
-        );
-    }
+    //                         Version {{$version}}
+    //                     </div>
+    //                 </x-filament::dropdown.list.item>
+    //             </x-filament::dropdown.list>
+    //         BLADE, [
+    //             'version' => $version,
+    //         ]),
+    //     );
+    // }
 }
