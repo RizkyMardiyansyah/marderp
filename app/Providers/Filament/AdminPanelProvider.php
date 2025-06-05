@@ -7,6 +7,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -39,8 +40,9 @@ class AdminPanelProvider extends PanelProvider
             ->emailVerification()
             ->profile()
             ->colors([
-                'primary' => Color::Blue,
+                'primary' => Color::Amber,
             ])
+            ->font('poppins')
             ->unsavedChangesAlerts()
             // ->spa()
             ->sidebarCollapsibleOnDesktop()
@@ -71,8 +73,18 @@ class AdminPanelProvider extends PanelProvider
                 //         'sm'      => 2,
                 //     ]),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+                \Hasnayeen\Themes\ThemesPlugin::make(),
                 PluginManager::make(),
             ])
+            ->navigationItems([
+                NavigationItem::make('Themes')
+                    ->url('/admin/themes')
+                    ->icon('heroicon-o-paint-brush')
+                    ->isActiveWhen(fn () => request()->is('admin/themes'))
+                    ->group('Settings')
+                    ->sort(6),
+            ])
+
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -83,6 +95,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                \Hasnayeen\Themes\Http\Middleware\SetTheme::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
