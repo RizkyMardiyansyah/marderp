@@ -807,11 +807,11 @@ class EmployeeResource extends Resource
                         ])
                             ->visible(fn ($record): bool => (bool) $record->categories()->get()?->count()),
                     ])->space(1),
-                ])->space(2),
+                ])->space(3),
             ])
             ->contentGrid([
                 'md' => 2,
-                'xl' => 2,
+                'xl' => 3,
             ])
             ->paginated([
                 18,

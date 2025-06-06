@@ -115,6 +115,8 @@ class UserResource extends Resource
                                     ->relationship('partner', 'avatar')
                                     ->schema([
                                         Forms\Components\FileUpload::make('avatar')
+                                            ->avatar()
+                                            ->alignCenter()
                                             ->hiddenLabel()
                                             ->imageResizeMode('cover')
                                             ->imageEditor()
