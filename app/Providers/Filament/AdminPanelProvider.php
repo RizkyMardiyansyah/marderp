@@ -81,10 +81,16 @@ class AdminPanelProvider extends PanelProvider
             ->navigationItems([
                 NavigationItem::make('Themes')
                     ->url('/admin/themes')
-                    ->icon('heroicon-o-paint-brush')
+                    ->icon('heroicon-o-swatch')
                     ->isActiveWhen(fn () => request()->is('admin/themes'))
                     ->group('Settings')
-                    ->sort(6),
+                    ->sort(7),
+                NavigationItem::make('My Profile')
+                    ->url('/admin/my-profile')
+                    ->icon('heroicon-o-user')
+                    ->group('Settings')
+                    ->isActiveWhen(fn () => request()->is('admin/my-profile'))
+                    ->sort(5),
             ])
             ->userMenuItems([
                 'profile' => MenuItem::make()->label(fn () => Auth::user()?->name ?? 'Guest'),
@@ -93,7 +99,7 @@ class AdminPanelProvider extends PanelProvider
                 
                 MenuItem::make()
                     ->label('My Profile')
-                    ->url('/admin/profile')
+                    ->url('/admin/my-profile')
                     ->icon('heroicon-o-user'),
                 // ...
             ])

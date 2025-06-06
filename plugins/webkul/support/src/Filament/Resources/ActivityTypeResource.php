@@ -355,7 +355,7 @@ class ActivityTypeResource extends Resource
                                             ->placeholder('—')
                                             ->label(__('support::filament/resources/activity-type.infolist.sections.advanced-information.entries.icon')),
                                         Infolists\Components\TextEntry::make('decoration_type')
-                                            ->icon('heroicon-o-paint-brush')
+                                            ->icon('heroicon-o-swatch')
                                             ->formatStateUsing(fn ($state) => ActivityDecorationType::options()[$state])
                                             ->placeholder('—')
                                             ->label(__('support::filament/resources/activity-type.infolist.sections.advanced-information.entries.decoration-type')),

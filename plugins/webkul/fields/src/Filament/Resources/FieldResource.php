@@ -194,7 +194,8 @@ class FieldResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('customizable_type')
                     ->label(__('fields::filament/resources/field.table.columns.resource'))
-                    ->description(fn (Field $record): string => str($record->customizable_type)->afterLast('\\')->toString().'Resource')
+                    // ->formatStateUsing(fn (string $state): string => str($state)->afterLast('\\'))
+                    ->formatStateUsing(fn (Field $record): string => str($record->customizable_type)->afterLast('\\')->toString().'Resource')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('fields::filament/resources/field.table.columns.created-at'))
