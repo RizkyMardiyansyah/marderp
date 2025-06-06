@@ -114,7 +114,7 @@ class EmployeeResource extends Resource
                                     ->relationship('partner', 'avatar')
                                     ->schema([
                                         Forms\Components\FileUpload::make('avatar')
-                                            ->image()
+                                            // ->image()
                                             ->hiddenLabel()
                                             ->imageResizeMode('cover')
                                             ->imageEditor()
@@ -751,8 +751,12 @@ class EmployeeResource extends Resource
             ->columns([
                 Tables\Columns\Layout\Stack::make([
                     Tables\Columns\ImageColumn::make('partner.avatar')
-                        ->height(150)
-                        ->width(200),
+                    ->extraImgAttributes([
+                        'style' => 'width: 120px; height: 120px;',
+                    ])
+                    ->alignCenter()
+                    ->circular()
+                    ->default(fn ($record) => 'https://ui-avatars.com/api/?name=' . urlencode($record->partner->name) . '&background=random&color=fff&size=128'),
                     Tables\Columns\Layout\Stack::make([
                         Tables\Columns\TextColumn::make('name')
                             ->label(__('employees::filament/resources/employee.table.columns.name'))
@@ -803,11 +807,11 @@ class EmployeeResource extends Resource
                         ])
                             ->visible(fn ($record): bool => (bool) $record->categories()->get()?->count()),
                     ])->space(1),
-                ])->space(4),
+                ])->space(2),
             ])
             ->contentGrid([
                 'md' => 2,
-                'xl' => 4,
+                'xl' => 2,
             ])
             ->paginated([
                 18,

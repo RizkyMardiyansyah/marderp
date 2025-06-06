@@ -178,6 +178,7 @@ class UserResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('partner.avatar')
                     ->size(50)
+                    ->circular()
                     ->label(__('security::filament/resources/user.table.columns.avatar')),
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('security::filament/resources/user.table.columns.name'))
