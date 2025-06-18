@@ -64,13 +64,17 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationItems([
                 NavigationItem::make('Themes')
-                    ->url(request()->url() . '/themes')
+                    ->url(
+                        url((request()->segment(2) ? '/' . request()->segment(1) : '') . '/themes')
+                    )
                     ->icon('heroicon-o-swatch')
                     ->isActiveWhen(fn () => request()->is('*themes'))
                     ->group('Settings')
                     ->sort(7),
                 NavigationItem::make('My Profile')
-                    ->url('/my-profile')
+                    ->url(
+                        url((request()->segment(2) ? '/' . request()->segment(1) : '') . '/my-profile')
+                    )
                     ->icon('heroicon-o-user')
                     ->group('Settings')
                     ->isActiveWhen(fn () => request()->is('*my-profile'))
@@ -83,7 +87,9 @@ class AdminPanelProvider extends PanelProvider
                 
                 MenuItem::make()
                     ->label('My Profile')
-                    ->url('/' . request()->segment(1). '/my-profile')
+                    ->url(
+                        url((request()->segment(2) ? '/' . request()->segment(1) : '') . '/my-profile')
+                    )
                     ->icon('heroicon-o-user'),
                 // ...
             ])
