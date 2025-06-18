@@ -2,7 +2,6 @@
 
 return [
     Webkul\Account\AccountPlugin::class,
-    Webkul\Blog\BlogPlugin::class,
     Webkul\Chatter\ChatterPlugin::class,
     Webkul\Contact\ContactPlugin::class,
     Webkul\Employee\EmployeePlugin::class,
@@ -21,5 +20,4 @@ return [
     Webkul\Partner\PartnerPlugin::class,
     Webkul\TimeOff\TimeOffPlugin::class,
     Webkul\Timesheet\TimesheetPlugin::class,
-    Webkul\Website\WebsitePlugin::class,
 ];

@@ -102,7 +102,6 @@ These plugin can be installed as needed to extend system functionality:
 
 | Module       | Description                                  |
 | ------------ | -------------------------------------------- |
-| Blogs        | Manage blogs                                 |
 | Accounts     | Financial accounting and reporting           |
 | Contacts     | Contact management for customers and vendors |
 | Employees    | Employees management                         |
@@ -117,7 +116,6 @@ These plugin can be installed as needed to extend system functionality:
 | Sales        | Sales pipeline and opportunity management    |
 | Time-off     | Leave management and tracking                |
 | Timesheets   | Employee work hour tracking                  |
-| Website      | Website for customer                         |
 
 ## Installation and Management
 

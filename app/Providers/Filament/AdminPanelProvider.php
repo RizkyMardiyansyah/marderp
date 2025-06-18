@@ -58,24 +58,6 @@ class AdminPanelProvider extends PanelProvider
                     ->label('Settings'),
             ])
             ->plugins([
-                // FilamentShieldPlugin::make()
-                //     ->gridColumns([
-                //         'default' => 1,
-                //         'sm'      => 1,
-                //         'lg'      => 2,
-                //         'xl'      => 3,
-                //     ])
-                //     ->sectionColumnSpan(1)
-                //     ->checkboxListColumns([
-                //         'default' => 1,
-                //         'sm'      => 1,
-                //         'lg'      => 2,
-                //         'xl'      => 3,
-                //     ])
-                //     ->resourceCheckboxListColumns([
-                //         'default' => 1,
-                //         'sm'      => 2,
-                //     ]),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
                 \Hasnayeen\Themes\ThemesPlugin::make(),
                 PluginManager::make(),
@@ -88,7 +70,7 @@ class AdminPanelProvider extends PanelProvider
                     ->group('Settings')
                     ->sort(7),
                 NavigationItem::make('My Profile')
-                    ->url(request()->url(). '/my-profile')
+                    ->url('/my-profile')
                     ->icon('heroicon-o-user')
                     ->group('Settings')
                     ->isActiveWhen(fn () => request()->is('*my-profile'))
@@ -101,7 +83,7 @@ class AdminPanelProvider extends PanelProvider
                 
                 MenuItem::make()
                     ->label('My Profile')
-                    ->url(request()->url(). '/my-profile')
+                    ->url('/' . request()->segment(1). '/my-profile')
                     ->icon('heroicon-o-user'),
                 // ...
             ])

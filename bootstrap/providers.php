@@ -7,7 +7,6 @@ return [
     // App\Providers\Filament\CustomerPanelProvider::class, 
     Webkul\Analytic\AnalyticServiceProvider::class,
     Webkul\Account\AccountServiceProvider::class,
-    Webkul\Blog\BlogServiceProvider::class,
     Webkul\Chatter\ChatterServiceProvider::class,
     Webkul\Contact\ContactServiceProvider::class,
     Webkul\Employee\EmployeeServiceProvider::class,
@@ -26,5 +25,4 @@ return [
     Webkul\Security\SecurityServiceProvider::class,
     Webkul\TimeOff\TimeOffServiceProvider::class,
     Webkul\Timesheet\TimesheetServiceProvider::class,
-    Webkul\Website\WebsiteServiceProvider::class,
 ];
