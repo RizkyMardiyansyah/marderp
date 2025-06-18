@@ -32,7 +32,9 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            // note: diganti tanpa admin
+            // ->path('admin')
+            ->path('')
             ->login()
             ->favicon(asset('images/favicon.ico'))
             ->brandLogo(asset('images/logo-light.svg'))
@@ -80,16 +82,16 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationItems([
                 NavigationItem::make('Themes')
-                    ->url('/admin/themes')
+                    ->url(request()->url() . '/themes')
                     ->icon('heroicon-o-swatch')
-                    ->isActiveWhen(fn () => request()->is('admin/themes'))
+                    ->isActiveWhen(fn () => request()->is('*themes'))
                     ->group('Settings')
                     ->sort(7),
                 NavigationItem::make('My Profile')
-                    ->url('/admin/my-profile')
+                    ->url(request()->url(). '/my-profile')
                     ->icon('heroicon-o-user')
                     ->group('Settings')
-                    ->isActiveWhen(fn () => request()->is('admin/my-profile'))
+                    ->isActiveWhen(fn () => request()->is('*my-profile'))
                     ->sort(5),
             ])
             ->userMenuItems([
@@ -99,7 +101,7 @@ class AdminPanelProvider extends PanelProvider
                 
                 MenuItem::make()
                     ->label('My Profile')
-                    ->url('/admin/my-profile')
+                    ->url(request()->url(). '/my-profile')
                     ->icon('heroicon-o-user'),
                 // ...
             ])

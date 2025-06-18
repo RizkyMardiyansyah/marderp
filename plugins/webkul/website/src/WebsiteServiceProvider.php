@@ -49,9 +49,10 @@ class WebsiteServiceProvider extends PackageServiceProvider
         ], 'website');
 
         if (! Package::isPluginInstalled(self::$name)) {
-            Route::get('/', function () {
-                return redirect()->route('filament.admin..');
-            });
+            // note: route ke admin di hapus
+            // Route::get('/', function () {
+            //     return redirect()->route('filament.admin..');
+            // });
         }
     }
 
